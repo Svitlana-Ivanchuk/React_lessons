@@ -22,17 +22,3 @@ export const ListItem = styled.li`
   border-radius: 5px;
   width: calc((100% - 32px) / 3);
 `;
-//вынесли в функцию
-//border: 2px solid
-//  ${props => {
-//    switch (props.level) {
-//      case 'beginner':
-//        return 'green';
-//      case 'intermediate':
-//        return 'yellow';
-//      case 'advanced':
-//        return 'red';
-//      default:
-//        return 'black';
-//    }
-//  }};
