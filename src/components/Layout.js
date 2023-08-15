@@ -6,5 +6,5 @@ export const Layout = styled.div`
   gap: 24px;
   padding: 0 15px;
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 1200px;
 `;
