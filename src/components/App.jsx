@@ -7,14 +7,48 @@ import { Component } from 'react';
 import { QuizForm } from './QuizForm/QuizForm';
 //import { IconName } from 'react-icons/hi';
 
+const initialFilters = {
+  topic: '',
+  level: 'all',
+};
+
+const localStorageKey = 'quiz-filters';
+
 export class App extends Component {
   state = {
     quizItems: initialQuizItems,
-    filters: {
-      topic: '',
-      level: 'all',
-    },
+    filters: initialFilters,
   };
+
+  componentDidMount() {
+    //console.log('componentDidMount');
+    const savedFilters = localStorage.getItem(localStorageKey);
+    if (savedFilters !== null) {
+      //console.log(savedFilters);
+      this.setState({
+        filters: JSON.parse(savedFilters),
+      });
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    //console.log('this.state', this.state.filters);
+    //console.log('prevState', prevState.filters);
+    //console.log(prevState.filters === this.state.filters);
+
+    const { filters: prevFilters } = prevState;
+    const { filters: nextFilters } = this.state;
+
+    if (prevFilters !== nextFilters) {
+      //console.log('filters change');
+      localStorage.setItem(localStorageKey, JSON.stringify(nextFilters));
+    }
+  }
+
+  resetFilters = () => [
+    this.setState({
+      filters: initialFilters,
+    }),
+  ];
 
   changeTopicFilter = newTopic => {
     this.setState(prevState => {
@@ -81,6 +115,7 @@ export class App extends Component {
           levelFilter={filters.level}
           onChangeTopic={this.changeTopicFilter}
           onChangeLevel={this.changeLevelFilter}
+          onReset={this.resetFilters}
         />
         <QuizForm onAdd={this.addQuiz} />
         <QuizList items={visibleQuizItems} onDelete={this.handelDelete} />

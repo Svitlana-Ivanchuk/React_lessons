@@ -1,4 +1,5 @@
 import { Wrapper, Topic, Text } from './Quizcard.styled';
+import { MdDelete } from 'react-icons/md';
 
 export const QuizCard = ({
   item: { id, topic, level, time, questions },
@@ -17,7 +18,9 @@ export const QuizCard = ({
         <b>Questions : {questions}</b>
       </Text>
       <div>
-        <button onClick={() => onDelete(id)}>Delete</button>
+        <button onClick={() => onDelete(id)}>
+          <MdDelete></MdDelete>
+        </button>
         {/*<button onClick={onDelete}>Delete</button>*/}
       </div>
     </Wrapper>
