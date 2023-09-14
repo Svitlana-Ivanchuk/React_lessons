@@ -1,5 +1,5 @@
-//import { StatusFilter } from 'components/StatusFilter/StatusFilter';
-//import { TaskCounter } from 'components/TaskCounter/TaskCounter';
+import { StatusFilter } from 'components/StatusFilter/StatusFilter';
+import { TaskCounter } from 'components/TaskCounter/TaskCounter';
 
 import { HeaderTodoStyle, SectionTodoStyle } from './AppBar.styled';
 
@@ -8,11 +8,11 @@ export const AppBar = () => {
     <HeaderTodoStyle>
       <SectionTodoStyle>
         <h2>Tasks</h2>
-        {/*<TaskCounter />*/}
+        <TaskCounter />
       </SectionTodoStyle>
       <SectionTodoStyle>
         <h2>Filter by status</h2>
-        {/*<StatusFilter />*/}
+        <StatusFilter />
       </SectionTodoStyle>
     </HeaderTodoStyle>
   );
