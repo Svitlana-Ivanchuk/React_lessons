@@ -19,9 +19,8 @@ export const ButtonStyle = styled.button`
     background-color: #1565c0;
     color: #fff;
   }
+  .btn.isSelected {
+    background-color: #1976d2;
+    color: #fff;
+  }
 `;
-
-//.btn.isSelected {
-//  background-color: #1976d2;
-//  color: #fff;
-//}
