@@ -10,6 +10,7 @@ import { deleteTask, toggleCompleted } from 'redux/actions';
 
 export const Task = ({ task }) => {
   const dispatch = useDispatch();
+  
   const handleDelete = () => {
     dispatch(deleteTask(task.id));
   };
