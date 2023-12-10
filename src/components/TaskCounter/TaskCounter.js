@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { TaskCounterStyle } from './TaskCounter.styled';
-import { getTasks } from 'redux/selectors';
+import { selectAllTasks } from 'redux/tasks/selectors';
 
 export const TaskCounter = () => {
-  const tasks = useSelector(getTasks);
+  const tasks = useSelector(selectAllTasks);
 
   const count = tasks.reduce(
     (acc, task) => {
